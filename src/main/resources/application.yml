@@ -1,0 +1,49 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1045139553924-abg6vgr431vsjvoj7filrqb7enijo9ki.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - openid
+              - profile
+              - email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-name: Google
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+  datasource:
+    url: jdbc:postgresql://dpg-d127gnk9c44c7381ma8g-a.frankfurt-postgres.render.com/cinema_db_o9yd
+    username: user
+    password: 6OXaoxmtlZhazUH09o5wS8DQ9lmVKxzm
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      platform: postgres
+
+jwt:
+  secret: "c3JK6liGUMUntuO8rNs3ZoYAtVEf7y9RlSeYt2FNzWVyxPtyuVXc6J2H7HJeBgjip2149813hgfwsfowgv1gvwuhvfw23gwkdowji138y413W8"
+  expiration: 3600000
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+<h2>Login</h2>
+<div th:if="${param.logout}">
+    <p style="color: green;">Ви успішно вийшли з системи.</p>
+</div>
+<form th:action="@{/login}" method="post">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"/>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"/>
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>
+<h2>Логін через OAuth2</h2>
+<a href="/oauth2/authorization/google">Увійти через Google</a>
+</body>
+</html>
